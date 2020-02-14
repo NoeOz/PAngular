@@ -1,0 +1,56 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "body": "cience"
+    },
+    {
+      "id": 2,
+      "body": "informatique"
+    }
+  ],
+  "ressources": [
+    {
+      "id": 1,
+      "title": "ressource1",
+      "author": "autor1",
+      "categoriesId": 1,
+      "type": "revue"
+    },
+    {
+      "id": 2,
+      "title": "ressource2",
+      "author": "autor2",
+      "categoriesId": 1,
+      "types": "revue"
+    },
+    {
+      "id": 3,
+      "title": "ressource3",
+      "author": "autor3",
+      "categoriesId": 2,
+      "types": "livre"
+    },
+    {
+      "id": 4,
+      "title": "ressource4",
+      "author": "autor4",
+      "categoriesId": 2,
+      "types": "livre"
+    },
+    {
+      "id": 5,
+      "title": "ressource5",
+      "author": "autor5",
+      "categoriesId": 1,
+      "types": "revue"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "root",
+      "password": "root"
+    }
+  ]
+}
