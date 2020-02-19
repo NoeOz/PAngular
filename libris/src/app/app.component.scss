@@ -2,6 +2,12 @@ mat-sidenav
 {
   height: 100%;
   width: 20%;
+  background-color: #8A99A6;
+  color: white;
+}
+mat-list-item
+{
+  color: white;
 }
 mat-sidenav-content
 {
@@ -14,5 +20,5 @@ mat-sidenav-content
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgb(184, 211, 247);
+  background:#D7D7D9;
 }

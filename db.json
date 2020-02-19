@@ -2,48 +2,63 @@
   "categories": [
     {
       "id": 1,
-      "body": "cience"
+      "body": "Cience"
     },
     {
       "id": 2,
-      "body": "informatique"
+      "body": "Informatique"
+    },
+    {
+      "id": 3,
+      "body": "Philosophie"
+    },
+    {
+      "id": 4,
+      "body": "Biologie"
     }
   ],
   "ressources": [
     {
       "id": 1,
-      "title": "ressource1",
-      "author": "autor1",
+      "title": "The news planets",
+      "author": "Discovery",
       "categoriesId": 1,
-      "type": "revue"
+      "type": "Revue"
     },
     {
       "id": 2,
-      "title": "ressource2",
-      "author": "autor2",
-      "categoriesId": 1,
-      "types": "revue"
-    },
-    {
-      "id": 3,
-      "title": "ressource3",
-      "author": "autor3",
+      "title": "C#",
+      "author": "Microsoft Company",
       "categoriesId": 2,
-      "types": "livre"
+      "types": "Livre"
     },
     {
       "id": 4,
-      "title": "ressource4",
-      "author": "autor4",
-      "categoriesId": 2,
-      "types": "livre"
+      "title": "La Coleur de l'existence",
+      "author": "Noé Oziel Pérez Lopéz",
+      "categoriesId": 3,
+      "types": "Livre"
+    },
+    {
+      "id": 4,
+      "title": "The theory of species",
+      "author": "Charles Darwing",
+      "categoriesId": 4,
+      "types": "Livre"
     },
     {
       "id": 5,
-      "title": "ressource5",
-      "author": "autor5",
+      "title": "Más allá del bien y del mal",
+      "author": "Friedrich Nietzsche",
+      "categoriesId": 3,
+      "types": "Livre"
+    },
+    {
+      "id": 6,
+      "title": "Escapar de un agujero negro",
+      "author": "SCIENTIFIC AMERICA",
       "categoriesId": 1,
-      "types": "revue"
+      "types": "Revue"
     }
   ],
   "users": [

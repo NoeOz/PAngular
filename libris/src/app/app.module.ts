@@ -7,6 +7,7 @@ import {SharedModule} from 'src/shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
 import { CategoriesModule } from 'src/categories/categories.module';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { CategoriesModule } from 'src/categories/categories.module';
     SharedModule,
     BrowserAnimationsModule,
     MatSidenavModule,
+    MatListModule,
     CategoriesModule
   ],
   providers: [],

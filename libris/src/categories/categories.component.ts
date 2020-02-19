@@ -16,7 +16,7 @@ export class CategoriesComponent implements OnInit {
     alert('hello world');
   }*/
 
-  categorie:Categories[];
+  categorie: Categories[];
   displayedColumns: string[] = ['id', 'body'];
 
   categoriesObservable$: Observable<Categories[]>;
