@@ -4,7 +4,7 @@
   margin-top: 5%;
   background-color: #181E26;
 }
-th,td{
+button,mat-card-title{
   color: white;
 }
 mat-card
@@ -12,6 +12,10 @@ mat-card
   margin-left: 5%;
   margin-top: 5%;
   background-color: #181E26;
-  width: 20%;
+  width: 12%;
   height: auto;
+  float: left;
+}
+button{
+  background-color: #68748C;
 }
