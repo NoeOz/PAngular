@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Categories } from 'src/shared/models/categories';
 import { CategoriesService } from './services/categories.service';
 import { Observable } from 'rxjs';
-
+import { LibrisDialogComponent } from 'src/shared/components/libris-dialog/libris-dialog.component';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-categories',
@@ -10,17 +11,14 @@ import { Observable } from 'rxjs';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
-
-  /*toto = 'AAA';
-  Onclic() {
-    alert('hello world');
-  }*/
+  constructor(private categories: CategoriesService, public dialog: MatDialog) { }
 
   categorie: Categories[];
   displayedColumns: string[] = ['id', 'body'];
 
   categoriesObservable$: Observable<Categories[]>;
-  constructor(private categories: CategoriesService) { }
+
+  selectedCat: Categories;
 
   ngOnInit(): void {
     this.categoriesObservable$ = this.categories.get();
@@ -31,6 +29,16 @@ export class CategoriesComponent implements OnInit {
         error: err => console.log(err),
         complete: () => console.log('finish')
       });
+  }
+  onSelect(categorie: Categories): void {
+    this.selectedCat = categorie;
+  }
+
+  openDialog(categorie: Categories) {
+    this.selectedCat = categorie;
+    this.dialog.open(LibrisDialogComponent, {
+      data: {body: this.selectedCat.body, id: this.selectedCat.id}
+    });
   }
 
 }

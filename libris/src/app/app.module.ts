@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { CategoriesModule } from 'src/categories/categories.module';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CategoriesModule } from 'src/categories/categories.module';
     BrowserAnimationsModule,
     MatSidenavModule,
     MatListModule,
-    CategoriesModule
+    CategoriesModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

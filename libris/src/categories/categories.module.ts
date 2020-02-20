@@ -7,6 +7,9 @@ import { CategoriesService } from './services/categories.service';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import { SharedModule } from 'src/shared/shared.module';
 
 @NgModule({
   declarations: [CategoriesComponent],
@@ -16,7 +19,10 @@ import {MatButtonModule} from '@angular/material/button';
     FormsModule,
     MatTableModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule,
+    SharedModule
   ],
   exports:
   [
@@ -27,4 +33,5 @@ import {MatButtonModule} from '@angular/material/button';
     CategoriesService
   ]
 })
-export class CategoriesModule { }
+export class CategoriesModule {
+}

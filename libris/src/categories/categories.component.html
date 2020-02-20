@@ -1,6 +1,15 @@
 <mat-card *ngFor="let element of categoriesObservable$ | async">
   <mat-card-title>{{element.body}}</mat-card-title>
   <mat-card-actions>
-    <button mat-raised-button mat-button>Regarder</button>
+    <button mat-raised-button mat-button (click)="onSelect(element)">
+      <mat-icon aria-hidden="false" aria-label="Edit">visibility</mat-icon>
+    </button>
+    <button mat-raised-button mat-button (click)="openDialog(element)">
+      <mat-icon aria-hidden="false" aria-label="Edit">create</mat-icon>
+    </button>
+    <button mat-raised-button mat-button color="accent">
+      <mat-icon aria-hidden="false" aria-label="Supprimer">clear</mat-icon>
+    </button>
   </mat-card-actions>
 </mat-card>
+
