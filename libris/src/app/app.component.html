@@ -3,9 +3,15 @@
   <mat-sidenav mode="side" opened>
     <mat-list>
       <mat-list-item style="color: white;">
-        <mat-icon aria-hidden="false" aria-label="list">sort</mat-icon> List </mat-list-item>
-      <mat-list-item style="color: white;">
-        <mat-icon aria-hidden="false" aria-label="add">add_box</mat-icon> Créer </mat-list-item>
+        <mat-icon aria-hidden="false" aria-label="list">sort</mat-icon>
+        <button mat-button [matMenuTriggerFor]="menu">List</button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item [routerLink]="[ '/categories']">
+            Categories
+          </button>
+          <button mat-menu-item [routerLink]="[ '/ressources']">Ressources</button>
+        </mat-menu>
+      </mat-list-item>
     </mat-list>
   </mat-sidenav>
   <mat-sidenav-content>

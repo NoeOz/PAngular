@@ -1,15 +1,43 @@
 <mat-card *ngFor="let element of categoriesObservable$ | async">
   <mat-card-title>{{element.body}}</mat-card-title>
   <mat-card-actions>
-    <button mat-raised-button mat-button (click)="onSelect(element)">
+    <button mat-raised-button mat-button>
       <mat-icon aria-hidden="false" aria-label="Edit">visibility</mat-icon>
     </button>
     <button mat-raised-button mat-button (click)="openDialog(element)">
       <mat-icon aria-hidden="false" aria-label="Edit">create</mat-icon>
     </button>
+    <button mat-raised-button mat-button color="accent" (click)="suppCat(element.id)">
+      <mat-icon aria-hidden="false" aria-label="Supprimer">delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>Crée noveau categorie</mat-card-title>
+  <mat-card-actions>
+    <button mat-raised-button mat-button color="primary" (click)="onSelect(true)">
+      <mat-icon aria-hidden="false" aria-label="Supprimer">add_circle</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card *ngIf="visible" class="newComp">
+  <mat-card-title>Créer noveau categorie</mat-card-title>
+  <form #corps="ngForm" (ngSubmit)="addCat(corps)">
+    <mat-form-field>
+      <mat-label>Nom de la categorie</mat-label>
+      <input name="body" ngModel required #body="ngModel" matInput placeholder="Ex. psicologie, astronomie...">
+    </mat-form-field>
+    <button mat-raised-button mat-button color="primary">
+      <mat-icon aria-hidden="false" aria-label="Supprimer">done</mat-icon>
+    </button>
+  </form>
+  <mat-card-actions>
     <button mat-raised-button mat-button color="accent">
       <mat-icon aria-hidden="false" aria-label="Supprimer">clear</mat-icon>
     </button>
   </mat-card-actions>
 </mat-card>
+
 

@@ -6,6 +6,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LibrisDialogComponent } from './components/libris-dialog/libris-dialog.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [LibrisToolbarComponent, NotFoundComponent, LibrisDialogComponent],
@@ -13,9 +15,11 @@ import {MatButtonModule} from '@angular/material/button';
     CommonModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
+    FormsModule
   ],
-  entryComponents: [LibrisDialogComponent],
+  // entryComponents: [LibrisDialogComponent],
   exports: [
     LibrisToolbarComponent,
     NotFoundComponent,

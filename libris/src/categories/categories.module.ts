@@ -10,6 +10,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import { SharedModule } from 'src/shared/shared.module';
+import {MatInputModule} from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [CategoriesComponent],
@@ -22,7 +24,9 @@ import { SharedModule } from 'src/shared/shared.module';
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
-    SharedModule
+    SharedModule,
+    MatInputModule,
+    MatSnackBarModule
   ],
   exports:
   [

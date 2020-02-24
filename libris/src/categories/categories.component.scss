@@ -1,10 +1,4 @@
-.mat-elevation-z8
-{
-  margin-left: 5%;
-  margin-top: 5%;
-  background-color: #181E26;
-}
-button,mat-card-title{
+button, mat-card-title{
   color: white;
 }
 mat-card
@@ -12,9 +6,12 @@ mat-card
   margin-left: 5%;
   margin-top: 5%;
   background-color: #181E26;
-  width: 12%;
   height: auto;
   float: left;
+}
+.newComp{
+  background-color: rgb(93, 113, 139);
+  color: white;
 }
 button{
   background-color: #68748C;
