@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
+import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Ressources } from 'src/shared/models/ressources';
 import { HttpClient } from '@angular/common/http';
 
-@Injectable(
-)
+@Injectable({
+  providedIn: 'root'
+})
 export class RessourcesService {
 
   constructor(private http: HttpClient) { }
@@ -17,8 +19,9 @@ export class RessourcesService {
     return this.http.get<Ressources[]>('http://localhost:3000/ressources');
   }
 
-  update(res: Ressources): Observable<Ressources[]> {
-    return this.http.put<Ressources[]>('http://localhost:3000/ressources', res);
+  update(res: Ressources): Observable<any> {
+    const httpotions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
+    return this.http.put('http://localhost:3000/ressources/' + res.id, res, httpotions).pipe();
   }
 
   delete(idRes: number) {

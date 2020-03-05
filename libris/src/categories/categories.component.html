@@ -13,15 +13,6 @@
   </mat-card-actions>
 </mat-card>
 
-<mat-card>
-  <mat-card-title>Crée noveau categorie</mat-card-title>
-  <mat-card-actions>
-    <button mat-raised-button mat-button color="primary" (click)="onSelect(true)">
-      <mat-icon aria-hidden="false" aria-label="Supprimer">add_circle</mat-icon>
-    </button>
-  </mat-card-actions>
-</mat-card>
-
 <mat-card *ngIf="visible" class="newComp">
   <mat-card-title>Créer noveau categorie</mat-card-title>
   <form #corps="ngForm" (ngSubmit)="addCat(corps)">
@@ -40,4 +31,11 @@
   </mat-card-actions>
 </mat-card>
 
-
+<mat-card>
+  <mat-card-title>Crée noveau categorie</mat-card-title>
+  <mat-card-actions>
+    <button mat-raised-button mat-button color="primary" (click)="onSelect(true)">
+      <mat-icon aria-hidden="false" aria-label="Supprimer">add_circle</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -1,12 +1,60 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>title</mat-card-title>
-    <mat-card-subtitle>subtitle</mat-card-subtitle>
-  </mat-card-header>
+<mat-card *ngFor="let element of ressourcesObservable$ | async">
+  <mat-card-title>{{element.title}}</mat-card-title>
   <mat-card-content>
-    AAAA
+    <p>{{element.author}}</p>
+    <p>{{element.categoriesId}}</p>
+    <p>{{element.types}}</p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>Ok</button>
+    <button mat-raised-button mat-button (click)="openDialog(element)">
+      <mat-icon aria-hidden="false" aria-label="Edit">create</mat-icon>
+    </button>
+    <button mat-raised-button mat-button color="accent" (click)="suppRes(element.id)">
+      <mat-icon aria-hidden="false" aria-label="Supprimer">delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card *ngIf="visible" class="newComp">
+  <mat-card-title>Créer noveau ressource</mat-card-title>
+  <form #corps="ngForm" (ngSubmit)="addRes(corps)">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input name="title" ngModel required #title="ngModel" matInput placeholder="Ex. Le principe...">
+    </mat-form-field><br>
+    <mat-form-field>
+      <mat-label>Author</mat-label>
+      <input name="author" ngModel required #author="ngModel" matInput placeholder="Ex. Nicolas Maquiavelo...">
+    </mat-form-field><br>
+    <mat-form-field>
+      <mat-label>Categorie</mat-label>
+      <mat-select name="categoriesId" ngModel>
+        <mat-option *ngFor="let cat of categoriesObservable$ | async" [value]="cat.id">{{cat.body}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button mat-button color="primary" [routerLink]="[ '/categories']">
+      <mat-icon aria-hidden="false" aria-label="Supprimer">add_circle</mat-icon>
+    </button><br>
+    <mat-form-field>
+      <mat-label>Type</mat-label>
+      <input name="types" ngModel required #types="ngModel" matInput placeholder="Ex. Livre...">
+    </mat-form-field>
+    <button mat-raised-button mat-button color="primary">
+      <mat-icon aria-hidden="false" aria-label="Supprimer">done</mat-icon>
+    </button>
+  </form>
+  <mat-card-actions>
+    <button mat-raised-button mat-button color="accent">
+      <mat-icon aria-hidden="false" aria-label="Supprimer">clear</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>Crée noveau ressource</mat-card-title>
+  <mat-card-actions>
+    <button mat-raised-button mat-button color="primary" (click)="onSelect(true)">
+      <mat-icon aria-hidden="false" aria-label="Supprimer">add_circle</mat-icon>
+    </button>
   </mat-card-actions>
 </mat-card>

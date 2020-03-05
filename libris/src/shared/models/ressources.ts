@@ -3,5 +3,5 @@ export class Ressources {
   title: string;
   author: string;
   categoriesId: number;
-  type: string;
+  types: string;
 }

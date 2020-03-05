@@ -1,1 +1,19 @@
-
+button, mat-card-title, mat-card-content{
+  color: white;
+}
+mat-card
+{
+  margin-left: 5%;
+  margin-top: 5%;
+  background-color: #181E26;
+  height: auto;
+  float: left;
+}
+.newComp{
+  background-color: rgb(93, 113, 139);
+  color: white;
+}
+button{
+  background-color: #68748C;
+  width: 20px;
+}

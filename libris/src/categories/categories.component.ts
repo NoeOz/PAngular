@@ -3,8 +3,8 @@ import { Categories } from 'src/shared/models/categories';
 import { CategoriesService } from './services/categories.service';
 import { Observable } from 'rxjs';
 import { LibrisDialogComponent } from 'src/shared/components/libris-dialog/libris-dialog.component';
-import {MatDialog} from '@angular/material/dialog';
-import {NgForm} from '@angular/forms';
+import {MatDialog } from '@angular/material/dialog';
+import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -13,17 +13,17 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
-  constructor(private categories: CategoriesService, public dialog: MatDialog, private snackBar: MatSnackBar) { }
+  constructor(private categories: CategoriesService, public dialog: MatDialog, private snackBar: MatSnackBar/*,
+              private dialogUse: LibrisDialogComponent*/) { }
 
   categorie: Categories[];
-  displayedColumns: string[] = ['id', 'body'];
 
   categoriesObservable$: Observable<Categories[]>;
 
   visible: boolean;
   selectedCat: Categories; // Edition
   selectedCategorie: Categories = new Categories(); // Creation
-  dialogRef: any;
+  dialogRef;
 
   ngOnInit(): void {
     this.categoriesObservable$ = this.categories.get();
@@ -47,6 +47,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   openDialog(categorie: Categories) {
+    //this.dialogUse.cat = true;
     this.selectedCat = categorie;
     this.dialogRef = this.dialog.open(LibrisDialogComponent, {
       data: this.selectedCat
@@ -54,11 +55,13 @@ export class CategoriesComponent implements OnInit {
   }
 
   addCat(corps: NgForm) {
-    corps.value.id = this.categorie.length + 1;
-    this.selectedCategorie.id = corps.value.id;
+    corps.value.id = this.categorie.length - 1;
+    this.selectedCategorie.id = this.categorie[corps.value.id].id + 1;
+
     this.selectedCategorie.body = corps.value.body;
+    console.log(this.selectedCategorie);
     this.categories.post(this.selectedCategorie).subscribe(() => {
-      this.openSnackBar('Categorie', ' enregistré');
+      this.openSnackBar('Categorie enregistré', ' ');
       this.ngOnInit();
     });
     this.selectedCategorie = new Categories();
@@ -66,7 +69,7 @@ export class CategoriesComponent implements OnInit {
 
   suppCat(id: number) {
     this.categories.delete(id).subscribe(() => {
-      this.openSnackBar('Categorie', ' supprimé');
+      this.openSnackBar('Categorie supprimé', ' ');
       this.ngOnInit();
     });
   }

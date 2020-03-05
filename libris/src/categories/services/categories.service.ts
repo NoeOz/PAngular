@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Categories } from 'src/shared/models/categories';
 import { HttpClient } from '@angular/common/http';
@@ -18,8 +18,9 @@ export class CategoriesService {
     return this.http.get<Categories[]>('http://localhost:3000/categories');
   }
 
-  update(cat: Categories): Observable<Categories[]> {
-    return this.http.put<Categories[]>('http://localhost:3000/categories', cat);
+  update(cat: Categories): Observable<any> {
+    const httpotions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
+    return this.http.put('http://localhost:3000/categories/' + cat.id, cat, httpotions).pipe();
   }
 
   delete(idCat: number) {
