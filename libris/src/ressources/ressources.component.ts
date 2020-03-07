@@ -8,6 +8,7 @@ import { LibrisDialogComponent } from 'src/shared/components/libris-dialog/libri
 import { MatDialog } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class RessourcesComponent implements OnInit {
 
   constructor(private ressources: RessourcesService, private categories: CategoriesService, public dialog: MatDialog,
-              private snackBar: MatSnackBar/*, private dialogUse: LibrisDialogComponent*/) { }
+              private snackBar: MatSnackBar, private route: ActivatedRoute/*, private dialogUse: LibrisDialogComponent*/) { }
   ressource: Ressources[];
   displayedColumns: string[] = ['id', 'title', 'author', 'categoriesId', 'types'];
 
@@ -32,7 +33,12 @@ export class RessourcesComponent implements OnInit {
 
   cat: Categories[];
 
+  catId: number;
+  verCatId: boolean;
+
   ngOnInit(): void {
+    this.catId = Number(this.route.snapshot.paramMap.get('id'));
+
     this.ressourcesObservable$ = this.ressources.get();
     this.categoriesObservable$ = this.categories.get();
 
@@ -44,7 +50,16 @@ export class RessourcesComponent implements OnInit {
     this.categoriesObservable$.forEach(element => {
         this.cat = element;
     });
+
     this.visible = false;
+
+    if (this.catId > 0) {
+      this.verCatId = true;
+      this.ressourcesObservable$ = this.ressources.getResCat(this.catId);
+    } else {
+      this.verCatId = false;
+    }
+
   }
 
   openSnackBar(message: string, messageD: string) {
@@ -56,7 +71,7 @@ export class RessourcesComponent implements OnInit {
   }
 
   openDialog(categorie: Ressources) {
-    //this.dialogUse.cat = false;
+    // this.dialogUse.cat = false;
     this.selectedRes = categorie;
     this.dialogRef = this.dialog.open(LibrisDialogComponent, {
       data: this.selectedRes

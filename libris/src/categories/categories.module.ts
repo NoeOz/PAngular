@@ -12,6 +12,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { SharedModule } from 'src/shared/shared.module';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 @NgModule({
   declarations: [CategoriesComponent],
@@ -26,7 +27,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatDialogModule,
     SharedModule,
     MatInputModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    AppRoutingModule
   ],
   exports:
   [

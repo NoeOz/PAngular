@@ -6,6 +6,7 @@ import { LibrisDialogComponent } from 'src/shared/components/libris-dialog/libri
 import {MatDialog } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { RessourcesComponent } from 'src/ressources/ressources.component';
 
 @Component({
   selector: 'app-categories',
@@ -47,7 +48,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   openDialog(categorie: Categories) {
-    //this.dialogUse.cat = true;
+    // this.dialogUse.cat = true;
     this.selectedCat = categorie;
     this.dialogRef = this.dialog.open(LibrisDialogComponent, {
       data: this.selectedCat

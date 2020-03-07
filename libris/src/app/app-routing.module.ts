@@ -20,6 +20,10 @@ const routes: Routes = [
     component: RessourcesComponent
   },
   {
+    path: 'ressources/:id',
+    component: RessourcesComponent
+  },
+  {
     path: '**',
     component: NotFoundComponent
   }

@@ -1,19 +1,25 @@
-<mat-card *ngFor="let element of ressourcesObservable$ | async">
-  <mat-card-title>{{element.title}}</mat-card-title>
-  <mat-card-content>
-    <p>{{element.author}}</p>
-    <p>{{element.categoriesId}}</p>
-    <p>{{element.types}}</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button mat-button (click)="openDialog(element)">
-      <mat-icon aria-hidden="false" aria-label="Edit">create</mat-icon>
-    </button>
-    <button mat-raised-button mat-button color="accent" (click)="suppRes(element.id)">
-      <mat-icon aria-hidden="false" aria-label="Supprimer">delete</mat-icon>
-    </button>
-  </mat-card-actions>
-</mat-card>
+<button mat-raised-button mat-button class="back" [routerLink]="[ '/categories']">
+  <mat-icon aria-hidden="false" aria-label="Back">keyboard_backspace</mat-icon>
+</button>
+
+<div *ngIf="verCatId; else elseBlock">
+  <mat-card *ngFor="let element of ressourcesObservable$ | async">
+    <mat-card-title>{{element.title}}</mat-card-title>
+    <mat-card-content>
+      <p>{{element.author}}</p>
+      <p>{{element.categoriesId}}</p>
+      <p>{{element.types}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button mat-button (click)="openDialog(element)">
+        <mat-icon aria-hidden="false" aria-label="Edit">create</mat-icon>
+      </button>
+      <button mat-raised-button mat-button color="accent" (click)="suppRes(element.id)">
+        <mat-icon aria-hidden="false" aria-label="Supprimer">delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
 
 <mat-card *ngIf="visible" class="newComp">
   <mat-card-title>Créer noveau ressource</mat-card-title>
@@ -58,3 +64,22 @@
     </button>
   </mat-card-actions>
 </mat-card>
+
+<div #elseBlock>
+  <mat-card *ngFor="let element of ressourcesObservable$ | async">
+    <mat-card-title>{{element.title}}</mat-card-title>
+    <mat-card-content>
+      <p>{{element.author}}</p>
+      <p>{{element.categoriesId}}</p>
+      <p>{{element.types}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button mat-button (click)="openDialog(element)">
+        <mat-icon aria-hidden="false" aria-label="Edit">create</mat-icon>
+      </button>
+      <button mat-raised-button mat-button color="accent" (click)="suppRes(element.id)">
+        <mat-icon aria-hidden="false" aria-label="Supprimer">delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

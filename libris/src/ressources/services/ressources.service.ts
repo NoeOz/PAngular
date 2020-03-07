@@ -15,6 +15,10 @@ export class RessourcesService {
     return this.http.post('http://localhost:3000/ressources', res);
   }
 
+  getResCat(idCat: number): Observable<Ressources[]> {
+    return this.http.get<Ressources[]>('http://localhost:3000/ressources?categoriesId=' + idCat);
+  }
+
   get(): Observable<Ressources[]> {
     return this.http.get<Ressources[]>('http://localhost:3000/ressources');
   }
