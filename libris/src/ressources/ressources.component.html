@@ -56,15 +56,6 @@
   </mat-card-actions>
 </mat-card>
 
-<mat-card>
-  <mat-card-title>Crée noveau ressource</mat-card-title>
-  <mat-card-actions>
-    <button mat-raised-button mat-button color="primary" (click)="onSelect(true)">
-      <mat-icon aria-hidden="false" aria-label="Supprimer">add_circle</mat-icon>
-    </button>
-  </mat-card-actions>
-</mat-card>
-
 <div #elseBlock>
   <mat-card *ngFor="let element of ressourcesObservable$ | async">
     <mat-card-title>{{element.title}}</mat-card-title>
@@ -83,3 +74,12 @@
     </mat-card-actions>
   </mat-card>
 </div>
+
+<mat-card>
+  <mat-card-title>Crée noveau ressource</mat-card-title>
+  <mat-card-actions>
+    <button mat-raised-button mat-button color="primary" (click)="onSelect(true)">
+      <mat-icon aria-hidden="false" aria-label="Supprimer">add_circle</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

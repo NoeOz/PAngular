@@ -47,6 +47,7 @@ export class RessourcesComponent implements OnInit {
         error: err => console.log(err),
         complete: () => console.log('finish')
       });
+
     this.categoriesObservable$.forEach(element => {
         this.cat = element;
     });
@@ -54,10 +55,10 @@ export class RessourcesComponent implements OnInit {
     this.visible = false;
 
     if (this.catId > 0) {
-      this.verCatId = true;
+      this.verCatId = false;
       this.ressourcesObservable$ = this.ressources.getResCat(this.catId);
     } else {
-      this.verCatId = false;
+      this.verCatId = true;
     }
 
   }
