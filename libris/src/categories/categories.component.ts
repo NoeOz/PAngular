@@ -6,7 +6,6 @@ import { LibrisDialogComponent } from 'src/shared/components/libris-dialog/libri
 import {MatDialog } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { RessourcesComponent } from 'src/ressources/ressources.component';
 
 @Component({
   selector: 'app-categories',
@@ -14,8 +13,7 @@ import { RessourcesComponent } from 'src/ressources/ressources.component';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
-  constructor(private categories: CategoriesService, public dialog: MatDialog, private snackBar: MatSnackBar/*,
-              private dialogUse: LibrisDialogComponent*/) { }
+  constructor(private categories: CategoriesService, public dialog: MatDialog, private snackBar: MatSnackBar) { }
 
   categorie: Categories[];
 
@@ -48,7 +46,6 @@ export class CategoriesComponent implements OnInit {
   }
 
   openDialog(categorie: Categories) {
-    // this.dialogUse.cat = true;
     this.selectedCat = categorie;
     this.dialogRef = this.dialog.open(LibrisDialogComponent, {
       data: this.selectedCat
@@ -61,10 +58,12 @@ export class CategoriesComponent implements OnInit {
 
     this.selectedCategorie.body = corps.value.body;
     console.log(this.selectedCategorie);
+
     this.categories.post(this.selectedCategorie).subscribe(() => {
       this.openSnackBar('Categorie enregistré', ' ');
       this.ngOnInit();
     });
+
     this.selectedCategorie = new Categories();
   }
 

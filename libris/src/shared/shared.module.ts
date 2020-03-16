@@ -9,9 +9,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
+import { LibrisDialogResComponent } from './components/libris-dialog-res/libris-dialog-res.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
-  declarations: [LibrisToolbarComponent, NotFoundComponent, LibrisDialogComponent],
+  declarations: [LibrisToolbarComponent, NotFoundComponent, LibrisDialogComponent, LibrisDialogResComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -19,7 +21,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatButtonModule,
     MatInputModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
   ],
   // entryComponents: [LibrisDialogComponent],
   exports: [

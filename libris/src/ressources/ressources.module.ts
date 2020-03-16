@@ -23,7 +23,6 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatSelectModule,
     AppRoutingModule
   ],
   exports : [

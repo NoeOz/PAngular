@@ -1,0 +1,32 @@
+<div>
+  <h1 mat-dialog-title>Modifier {{data.title}}</h1>
+  <div mat-dialog-content>
+    <form #f="ngForm" (ngSubmit)="update(f)">
+      <mat-form-field>
+        <mat-label>Titre</mat-label>
+        <input id="title" name="title" [(ngModel)]="data.title" matInput ngModel #title="ngModel">
+      </mat-form-field><br>
+      <mat-form-field>
+        <mat-label>Author</mat-label>
+        <input id="author" name="author" [(ngModel)]="data.author" matInput ngModel #author="ngModel">
+      </mat-form-field><br>
+      <mat-form-field>
+        <mat-label>Categorie</mat-label>
+        <input id="categoriesId" name="categoriesId" [(ngModel)]="data.categoriesId" matInput ngModel #categoriesId="ngModel">
+        <mat-select name="categoriesId" ngModel [(value)]="data.categoriesId">
+          <mat-option *ngFor="let cat of categoriesObservable$ | async" [value]="cat.id">{{cat.body}}</mat-option>
+        </mat-select>
+      </mat-form-field><br>
+      <mat-form-field>
+        <mat-label>Type de ressource</mat-label>
+        <input id="types" name="types" [(ngModel)]="data.types" matInput ngModel #types="ngModel">
+      </mat-form-field>
+      <button mat-raised-button mat-button color="primary">
+        <mat-icon aria-hidden="false" aria-label="Submit">done</mat-icon>
+      </button>
+    </form>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-raised-button [mat-dialog-close]="true" color="accent">Cancel</button>
+  </div>
+</div>

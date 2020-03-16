@@ -4,11 +4,11 @@ import { Categories } from 'src/shared/models/categories';
 import { RessourcesService } from './services/ressources.service';
 import { CategoriesService } from 'src/categories/services/categories.service';
 import { Observable } from 'rxjs';
-import { LibrisDialogComponent } from 'src/shared/components/libris-dialog/libris-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
+import { LibrisDialogResComponent } from 'src/shared/components/libris-dialog-res/libris-dialog-res.component';
 
 
 @Component({
@@ -19,7 +19,7 @@ import { ActivatedRoute } from '@angular/router';
 export class RessourcesComponent implements OnInit {
 
   constructor(private ressources: RessourcesService, private categories: CategoriesService, public dialog: MatDialog,
-              private snackBar: MatSnackBar, private route: ActivatedRoute/*, private dialogUse: LibrisDialogComponent*/) { }
+              private snackBar: MatSnackBar, private route: ActivatedRoute) { }
   ressource: Ressources[];
   displayedColumns: string[] = ['id', 'title', 'author', 'categoriesId', 'types'];
 
@@ -37,16 +37,18 @@ export class RessourcesComponent implements OnInit {
   verCatId: boolean;
 
   ngOnInit(): void {
+    this.verCatId = false;
+
     this.catId = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.ressourcesObservable$ = this.ressources.get();
     this.categoriesObservable$ = this.categories.get();
+    this.ressourcesObservable$ = this.ressources.get();
 
     this.ressourcesObservable$.subscribe({
-        next: result => this.ressource = result,
-        error: err => console.log(err),
-        complete: () => console.log('finish')
-      });
+      next: result => this.ressource = result,
+      error: err => console.log(err),
+      complete: () => console.log('finish')
+    });
 
     this.categoriesObservable$.forEach(element => {
         this.cat = element;
@@ -55,10 +57,10 @@ export class RessourcesComponent implements OnInit {
     this.visible = false;
 
     if (this.catId > 0) {
-      this.verCatId = false;
+      this.verCatId = true;
       this.ressourcesObservable$ = this.ressources.getResCat(this.catId);
     } else {
-      this.verCatId = true;
+      this.verCatId = false;
     }
 
   }
@@ -72,9 +74,8 @@ export class RessourcesComponent implements OnInit {
   }
 
   openDialog(categorie: Ressources) {
-    // this.dialogUse.cat = false;
     this.selectedRes = categorie;
-    this.dialogRef = this.dialog.open(LibrisDialogComponent, {
+    this.dialogRef = this.dialog.open(LibrisDialogResComponent, {
       data: this.selectedRes
     });
   }

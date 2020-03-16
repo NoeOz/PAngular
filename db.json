@@ -68,6 +68,34 @@
       "author": "Jose Emilio Pacheco",
       "categoriesId": 8,
       "types": "Livre"
+    },
+    {
+      "id": 7,
+      "title": "The Gravity",
+      "author": "Isaac Newton",
+      "categoriesId": 5,
+      "types": "Livre"
+    },
+    {
+      "id": 8,
+      "title": "Agujeros Negros",
+      "author": "Stephen Hawking",
+      "categoriesId": 6,
+      "types": "Livre"
+    },
+    {
+      "id": 9,
+      "title": "Relatividad",
+      "author": "Albert Einstein",
+      "categoriesId": 7,
+      "types": "Livre"
+    },
+    {
+      "id": 10,
+      "title": "Psicología de las Masas",
+      "author": "Sigmund Freud",
+      "categoriesId": 9,
+      "types": "Livre"
     }
   ],
   "users": [

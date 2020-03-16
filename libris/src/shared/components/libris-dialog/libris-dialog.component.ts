@@ -19,11 +19,7 @@ export class LibrisDialogComponent implements OnInit {
   objRan: any;
   catComp: CategoriesComponent;
 
-  cat: boolean;
-
-  ngOnInit(): void {
-    this.cat = false;
-  }
+  ngOnInit(): void {}
 
   openSnackBar(message: string, messageD: string) {
     this.snackBar.open(message, messageD, {duration: 2000});
