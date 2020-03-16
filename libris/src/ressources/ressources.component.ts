@@ -33,6 +33,8 @@ export class RessourcesComponent implements OnInit {
 
   cat: Categories[];
 
+  NomCat: String;
+
   catId: number;
   verCatId: boolean;
 
@@ -40,6 +42,7 @@ export class RessourcesComponent implements OnInit {
     this.verCatId = false;
 
     this.catId = Number(this.route.snapshot.paramMap.get('id'));
+    this.NomCat = String(this.route.snapshot.paramMap.get('nom'));
 
     this.categoriesObservable$ = this.categories.get();
     this.ressourcesObservable$ = this.ressources.get();
@@ -56,11 +59,13 @@ export class RessourcesComponent implements OnInit {
 
     this.visible = false;
 
-    if (this.catId > 0) {
+    if (this.catId > 0 && this.NomCat != null) {
       this.verCatId = true;
       this.ressourcesObservable$ = this.ressources.getResCat(this.catId);
+      this.NomCat = 'Ressources avec la categorie ' + this.NomCat;
     } else {
       this.verCatId = false;
+      this.NomCat = 'Ressources';
     }
 
   }

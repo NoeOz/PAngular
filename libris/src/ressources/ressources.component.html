@@ -1,6 +1,9 @@
-<button mat-raised-button mat-button class="back" [routerLink]="[ '/categories']">
-  <mat-icon aria-hidden="false" aria-label="Back">keyboard_backspace</mat-icon>
-</button>
+<div class="options">
+  <button mat-raised-button mat-button class="back" [routerLink]="[ '/categories']">
+    <mat-icon aria-hidden="false" aria-label="Back">keyboard_backspace</mat-icon>
+  </button>
+  <h1>{{NomCat}}</h1>
+</div>
 
 <div>
   <mat-card *ngFor="let element of ressourcesObservable$ | async">

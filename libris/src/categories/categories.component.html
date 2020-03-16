@@ -1,7 +1,7 @@
 <mat-card *ngFor="let element of categoriesObservable$ | async">
   <mat-card-title>{{element.body}}</mat-card-title>
   <mat-card-actions>
-    <button mat-raised-button mat-button [routerLink]="[ '/ressources/', element.id]">
+    <button mat-raised-button mat-button [routerLink]="[ '/ressources/', element.id,element.body]">
       <mat-icon aria-hidden="false" aria-label="Edit">visibility</mat-icon>
     </button>
     <button mat-raised-button mat-button (click)="openDialog(element)">

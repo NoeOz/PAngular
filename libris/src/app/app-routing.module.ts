@@ -20,7 +20,7 @@ const routes: Routes = [
     component: RessourcesComponent
   },
   {
-    path: 'ressources/:id',
+    path: 'ressources/:id/:nom',
     component: RessourcesComponent
   },
   {
