@@ -11,13 +11,6 @@
         <input id="author" name="author" [(ngModel)]="data.author" matInput ngModel #author="ngModel">
       </mat-form-field><br>
       <mat-form-field>
-        <mat-label>Categorie</mat-label>
-        <input id="categoriesId" name="categoriesId" [(ngModel)]="data.categoriesId" matInput ngModel #categoriesId="ngModel">
-        <mat-select name="categoriesId" ngModel [(value)]="data.categoriesId">
-          <mat-option *ngFor="let cat of categoriesObservable$ | async" [value]="cat.id">{{cat.body}}</mat-option>
-        </mat-select>
-      </mat-form-field><br>
-      <mat-form-field>
         <mat-label>Type de ressource</mat-label>
         <input id="types" name="types" [(ngModel)]="data.types" matInput ngModel #types="ngModel">
       </mat-form-field>
